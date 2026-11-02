@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aswan - Gateway of the Nile | History, Granite & Riverbank Flora</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Cinzel & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'granite-pink': '#C87D55',
+                        'granite-rose': '#A45A52',
+                        'granite-dark': '#2D1E1E',
+                        'granite-deep': '#4A2E2B',
+                        'flora-green': '#2E5A44',
+                        'flora-emerald': '#1E3F30',
+                        'flora-leaf': '#4A7C59',
+                        'flora-light': '#88A782',
+                        'nile-blue': '#1E4E68',
+                        'nile-teal': '#1B4965',
+                        'sand-light': '#FBF7F2',
+                        'sand-warm': '#F3EDE2',
+                        'desert-gold': '#D4A359',
+                    },
+                    fontFamily: {
+                        serif: ['Cinzel', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .glass-nav {
+            background: rgba(251, 247, 242, 0.85);
+            backdrop-filter: blur(12px);
+        }
+        .granite-gradient {
+            background: linear-gradient(135deg, #A45A52 0%, #4A2E2B 100%);
+        }
+        .flora-gradient {
+            background: linear-gradient(135deg, #2E5A44 0%, #1E3F30 100%);
+        }
+        .nile-gradient {
+            background: linear-gradient(135deg, #1E4E68 0%, #0B2545 100%);
+        }
+        .hero-overlay {
+            background: linear-gradient(180deg, rgba(45,30,30,0.3) 0%, rgba(30,63,48,0.7) 70%, rgba(24,21,19,0.95) 100%);
+        }
+        .text-glow {
+            text-shadow: 0 0 15px rgba(212, 163, 89, 0.4);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #F3EDE2;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #A45A52;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-sand-light text-granite-dark font-sans custom-scrollbar antialiased">
+
+    <!-- Sticky Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-granite-pink/20 transition-all duration-300" id="mainHeader">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-full flora-gradient flex items-center justify-center text-desert-gold shadow-md group-hover:scale-105 transition-transform">
+                    <i class="fa-solid font-bold fa-water"></i>
+                </div>
+                <div>
+                    <span class="font-serif text-xl sm:text-2xl font-bold tracking-wider text-granite-dark block leading-none">ASWAN</span>
+                    <span class="text-[10px] tracking-widest text-flora-green uppercase font-medium">Syene • Gateway of the Nile</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#about" class="hover:text-flora-green transition-colors py-1">About & Gateway</a>
+                <a href="#timeline" class="hover:text-flora-green transition-colors py-1">Historical Era</a>
+                <a href="#granite-quarries" class="hover:text-granite-rose transition-colors py-1">Granite Heritage</a>
+                <a href="#landmarks" class="hover:text-flora-green transition-colors py-1">Landmarks</a>
+                <a href="#architecture" class="hover:text-flora-green transition-colors py-1">Architecture</a>
+                <a href="#culture-gastronomy" class="hover:text-granite-rose transition-colors py-1">Food & Crafts</a>
+                <a href="#music-language" class="hover:text-flora-green transition-colors py-1">Music & Dialect</a>
+            </nav>
+
+            <!-- Quick Action / Audio Toggle -->
+            <div class="hidden lg:flex items-center space-x-3">
+                <button onclick="toggleAudio()" id="audioBtn" class="flex items-center space-x-2 text-xs bg-flora-green/10 text-flora-green hover:bg-flora-green hover:text-white px-3 py-2 rounded-full transition-all border border-flora-green/30">
+                    <i class="fa-solid fa-volume-high" id="audioIcon"></i>
+                    <span id="audioText">Nile Ambient</span>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button onclick="toggleMobileMenu()" class="md:hidden text-granite-dark hover:text-flora-green p-2">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobileMenu" class="hidden md:hidden bg-sand-warm border-b border-granite-pink/30 px-6 py-4 space-y-3">
+            <a href="#about" onclick="toggleMobileMenu()" class="block py-2 text-granite-dark hover:text-flora-green font-medium">About & Gateway</a>
+            <a href="#timeline" onclick="toggleMobileMenu()" class="block py-2 text-granite-dark hover:text-flora-green font-medium">Historical Era</a>
+            <a href="#granite-quarries" onclick="toggleMobileMenu()" class="block py-2 text-granite-dark hover:text-granite-rose font-medium">Granite Heritage</a>
+            <a href="#landmarks" onclick="toggleMobileMenu()" class="block py-2 text-granite-dark hover:text-flora-green font-medium">Landmarks</a>
+            <a href="#architecture" onclick="toggleMobileMenu()" class="block py-2 text-granite-dark hover:text-flora-green font-medium">Architecture</a>
+            <a href="#culture-gastronomy" onclick="toggleMobileMenu()" class="block py-2 text-granite-dark hover:text-granite-rose font-medium">Food & Crafts</a>
+            <a href="#music-language" onclick="toggleMobileMenu()" class="block py-2 text-granite-dark hover:text-flora-green font-medium">Music & Dialect</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-granite-dark text-white">
+        <!-- Background Hero Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="images (1).jpg" alt="Aswan River Nile with Feluccas and Granite Boulders" class="w-full h-full object-cover object-center scale-105 transform animate-pulse duration-10000">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+
+        <!-- Floating UI Elements / Visual Accents -->
+        <div class="relative z-10 max-w-5xl mx-auto px-4 text-center py-20">
+            <div class="inline-flex items-center space-x-2 bg-flora-emerald/80 border border-flora-light/40 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-desert-gold mb-6 backdrop-blur-md">
+                <i class="fa-solid fa-gem text-granite-pink"></i>
+                <span>Southern Frontier of Egypt • Swenet</span>
+            </div>
+            
+            <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-bold tracking-wide leading-tight mb-6 text-glow">
+                Where Fertile Riverbanks<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-desert-gold via-granite-pink to-flora-light">Meet Eternal Granite</span>
+            </h1>
+
+            <p class="text-base sm:text-xl text-sand-warm/90 max-w-3xl mx-auto font-light leading-relaxed mb-10">
+                Aswan (ancient <em>Swenet / Syene</em>) stands as Egypt's storied southern gateway. Celebrated for its lush riverbank palm groves, iconic pink granite bedrock, majestic temples, and enduring Upper Egyptian heritage.
+            </p>
+
+            <div class="flex flex-wrap items-center justify-center gap-4">
+                <a href="#about" class="px-8 py-4 rounded-xl flora-gradient hover:opacity-95 text-white font-medium shadow-lg hover:shadow-flora-green/30 transition-all flex items-center space-x-2">
+                    <span>Explore Aswan's Legacy</span>
+                    <i class="fa-solid fa-arrow-down text-sm"></i>
+                </a>
+                <a href="#landmarks" class="px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white font-medium transition-all flex items-center space-x-2">
+                    <i class="fa-solid fa-compass text-desert-gold"></i>
+                    <span>Discover Landmarks</span>
+                </a>
+            </div>
+
+            <!-- Key Fact Metrics Row -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 pt-8 border-t border-white/10 text-left">
+                <div class="bg-black/30 backdrop-blur-md p-4 rounded-xl border border-white/10">
+                    <div class="text-desert-gold font-serif text-2xl font-bold">5,500+ BC</div>
+                    <div class="text-xs text-sand-warm/80 uppercase tracking-wider mt-1">Prehistoric Settlements</div>
+                </div>
+                <div class="bg-black/30 backdrop-blur-md p-4 rounded-xl border border-white/10">
+                    <div class="text-granite-pink font-serif text-2xl font-bold">1,168 Tonnes</div>
+                    <div class="text-xs text-sand-warm/80 uppercase tracking-wider mt-1">Unfinished Obelisk</div>
+                </div>
+                <div class="bg-black/30 backdrop-blur-md p-4 rounded-xl border border-white/10">
+                    <div class="text-flora-light font-serif text-2xl font-bold">5 Eras</div>
+                    <div class="text-xs text-sand-warm/80 uppercase tracking-wider mt-1">Architectural History</div>
+                </div>
+                <div class="bg-black/30 backdrop-blur-md p-4 rounded-xl border border-white/10">
+                    <div class="text-nile-teal font-serif text-2xl font-bold">Sa'idi Arabic</div>
+                    <div class="text-xs text-sand-warm/80 uppercase tracking-wider mt-1">Upper Egyptian Dialect</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section & Palette Philosophy -->
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-6 space-y-6">
+                <div class="inline-flex items-center space-x-2 text-flora-green font-semibold text-xs tracking-widest uppercase">
+                    <span class="w-8 h-[2px] bg-flora-green"></span>
+                    <span>City Overview & Identity</span>
+                </div>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-granite-dark leading-snug">
+                    Egypt's Ancient Southern Frontier & Nile Sanctuary
+                </h2>
+                <p class="text-granite-dark/80 leading-relaxed">
+                    Aswan is one of Egypt’s oldest southern cities, historically serving as the country’s main gateway toward the African interior. In ancient Egyptian times, it was called <strong>Swenet</strong> (derived from the ancient Egyptian goddess of the same name and meaning "trade"), later becoming <strong>Syene</strong> under Greek and Roman rule.
+                </p>
+                <p class="text-granite-dark/80 leading-relaxed">
+                    Its unique spatial identity comes directly from its geography: where the Nile cuts through dramatic pink and gray granite outcrops, giving rise to natural cataracts, island fortresses, and fertile riverbank flora that have sustained communities for over seven millennia.
+                </p>
+
+                <!-- Color Design Tokens Display Banner -->
+                <div class="bg-sand-warm p-5 rounded-2xl border border-granite-pink/20 space-y-3">
+                    <div class="text-xs font-bold text-granite-dark uppercase tracking-wider">Design System: Natural Palette Integration</div>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+                        <div class="flex items-center space-x-2">
+                            <span class="w-6 h-6 rounded-full bg-flora-green shadow-inner block"></span>
+                            <div><strong class="block">Riverbank Flora</strong>#2E5A44</div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="w-6 h-6 rounded-full bg-granite-rose shadow-inner block"></span>
+                            <div><strong class="block">Pink Granite</strong>#A45A52</div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="w-6 h-6 rounded-full bg-nile-teal shadow-inner block"></span>
+                            <div><strong class="block">Nile Waters</strong>#1B4965</div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="w-6 h-6 rounded-full bg-desert-gold shadow-inner block"></span>
+                            <div><strong class="block">Desert Sands</strong>#D4A359</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Landscape Image Showcase -->
+            <div class="lg:col-span-6 relative">
+                <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white group">
+                    <img src="images.jpg" alt="Panoramic Aswan River and Minaret View" class="w-full h-[450px] object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-granite-dark/90 via-granite-dark/40 to-transparent p-6 text-white">
+                        <span class="text-xs text-desert-gold font-semibold uppercase tracking-wider">The Nile Cataract Landscape</span>
+                        <h3 class="font-serif text-xl font-bold">Lush Palms, Minarets & Golden Dunes</h3>
+                        <p class="text-xs text-sand-warm/80 mt-1">A picturesque view over Elephantine Island and the west bank sandhills.</p>
+                    </div>
+                </div>
+                <!-- Floating Decorative Card -->
+                <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl border border-granite-pink/20 hidden sm:flex items-center space-x-3 max-w-xs">
+                    <div class="w-12 h-12 rounded-xl flora-gradient text-white flex items-center justify-center flex-shrink-0 text-xl">
+                        <i class="fa-solid fa-seedling"></i>
+                    </div>
+                    <div class="text-xs">
+                        <strong class="block text-granite-dark font-semibold">Flora & Agriculture</strong>
+                        <span class="text-gray-600">Date palms, papyrus reeds, and lush citrus orchards align the riverbanks.</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Historical Timeline Section -->
+    <section id="timeline" class="py-20 bg-sand-warm border-y border-granite-pink/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <div class="inline-flex items-center space-x-2 text-granite-rose font-semibold text-xs tracking-widest uppercase mb-2">
+                    <i class="fa-solid fa-hourglass-half"></i>
+                    <span>Chronology of Syene & Modern Aswan</span>
+                </div>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-granite-dark">A Multi-Layered Historical Journey</h2>
+                <p class="text-granite-dark/70 mt-2 text-sm sm:text-base">
+                    From prehistoric Nilotic communities to modern hydroelectric marvels, discover how Aswan shaped Egyptian history across millennia.
+                </p>
+            </div>
+
+            <!-- Architectural Heritage Visual Banner (Image: c5cd26e8-7371-4572-8fc4-c33acedead81.jpg) -->
+            <div class="mb-16 rounded-3xl overflow-hidden shadow-2xl border-2 border-granite-pink/30 relative">
+                <img src="c5cd26e8-7371-4572-8fc4-c33acedead81.jpg" alt="Aswan Visual Architectural Timeline - Egyptian, Ptolemaic, Coptic, Islamic & Modern" class="w-full h-auto object-cover max-h-[500px]">
+                <div class="bg-granite-dark/90 text-sand-warm p-6 sm:p-8 backdrop-blur-md">
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-sm">
+                        <div class="border-l-2 border-desert-gold pl-4">
+                            <h4 class="font-serif font-bold text-desert-gold text-base">Ancient Egyptian</h4>
+                            <p class="text-xs opacity-80 mt-1">Huge stone pylons, columns, and monumental granite carvings.</p>
+                        </div>
+                        <div class="border-l-2 border-granite-pink pl-4">
+                            <h4 class="font-serif font-bold text-granite-pink text-base">Ptolemaic & Roman</h4>
+                            <p class="text-xs opacity-80 mt-1">Isis worship at Philae Temple, Classical colonnades, and Nilometers.</p>
+                        </div>
+                        <div class="border-l-2 border-flora-light pl-4">
+                            <h4 class="font-serif font-bold text-flora-light text-base">Coptic & Islamic</h4>
+                            <p class="text-xs opacity-80 mt-1">Desert monasteries like St. Simeon, domes, minarets, and river market hubs.</p>
+                        </div>
+                        <div class="border-l-2 border-nile-teal pl-4">
+                            <h4 class="font-serif font-bold text-nile-teal text-base">Modern Engineering</h4>
+                            <p class="text-xs opacity-80 mt-1">The Old Aswan Dam (1902) and High Dam (1960s) redefining the landscape.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Timeline Stepper -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Epoch 1 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-granite-pink/10 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-granite-pink/5 rounded-bl-full transition-all group-hover:scale-110"></div>
+                    <span class="text-xs font-bold text-granite-rose uppercase tracking-widest">c. 5500 - 1070 BC</span>
+                    <h3 class="font-serif text-lg font-bold text-granite-dark mt-1">Prehistoric to New Kingdom</h3>
+                    <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+                        Early Nilotic settlers used the river for fishing and fertile silt. Following Egypt's unification (c. 3100 BC), Swenet became the crucial southern military post and pink granite supply center for royal pyramids and statues.
+                    </p>
+                </div>
+
+                <!-- Epoch 2 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-granite-pink/10 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-flora-green/5 rounded-bl-full transition-all group-hover:scale-110"></div>
+                    <span class="text-xs font-bold text-flora-green uppercase tracking-widest">332 BC - 7th Century AD</span>
+                    <h3 class="font-serif text-lg font-bold text-granite-dark mt-1">Ptolemaic, Roman & Coptic</h3>
+                    <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+                        Philae Temple flourished as a spiritual beacon for Isis. Under Roman rule, trade expanded. In the 4th-7th centuries, Christianity blossomed with major sites like St. Simeon Monastery adapting to desert life.
+                    </p>
+                </div>
+
+                <!-- Epoch 3 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-granite-pink/10 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-nile-teal/5 rounded-bl-full transition-all group-hover:scale-110"></div>
+                    <span class="text-xs font-bold text-nile-teal uppercase tracking-widest">7th Century - Present</span>
+                    <h3 class="font-serif text-lg font-bold text-granite-dark mt-1">Islamic Era & Modern Dams</h3>
+                    <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+                        Aswan grew as an Islamic trade city along Upper Egypt. The 1902 original dam and 1960s Aswan High Dam transformed Egyptian water management and led to UNESCO's monumental temple relocation campaign.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Granite Quarries & Stoneworking Section -->
+    <section id="granite-quarries" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Granite Imagery Showcase (Image: dd20d5c2-9125-4ecf-a37e-00ba874f80c4.png) -->
+                <div class="lg:col-span-7">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-sand-warm group">
+                        <img src="dd20d5c2-9125-4ecf-a37e-00ba874f80c4.png" alt="Ancient Egyptian Craftsmen Quarrying Pink Granite at Aswan" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-granite-dark/80 via-transparent to-transparent opacity-80"></div>
+                        <div class="absolute bottom-6 left-6 right-6 text-white">
+                            <span class="bg-granite-rose text-white text-[10px] uppercase tracking-widest px-3 py-1 rounded-full font-bold">Architectural Backbone</span>
+                            <h3 class="font-serif text-xl sm:text-2xl font-bold mt-2">The Rose Granite Quarries of Ancient Swenet</h3>
+                            <p class="text-xs text-sand-warm/90 mt-1">Masons carving monumental stone blocks along the riverbanks for transport to Giza, Luxor, and Memphis.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Granite Narrative -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="inline-flex items-center space-x-2 text-granite-rose font-semibold text-xs tracking-widest uppercase">
+                        <i class="fa-solid fa-cubes-stacked"></i>
+                        <span>Geological Foundation</span>
+                    </div>
+                    <h2 class="font-serif text-3xl font-bold text-granite-dark leading-tight">
+                        Granite That Built Egypt's Eternal Monuments
+                    </h2>
+                    <p class="text-granite-dark/80 text-sm leading-relaxed">
+                        Aswan's distinctive red, pink, and black granite bedrock was prized above all other stones in ancient times. Masons utilized dolerite hammerstones, bronze chisels, and wooden wedges soaked in water to split massive blocks directly from the bedrock.
+                    </p>
+
+                    <!-- Feature Box: Unfinished Obelisk Details -->
+                    <div class="bg-sand-warm p-5 rounded-2xl border-l-4 border-granite-rose space-y-2">
+                        <div class="flex justify-between items-center">
+                            <h4 class="font-serif font-bold text-granite-dark text-base">The Unfinished Obelisk</h4>
+                            <span class="text-xs bg-granite-rose/10 text-granite-rose px-2.5 py-0.5 rounded-full font-bold">Queen Hatshepsut Era</span>
+                        </div>
+                        <p class="text-xs text-gray-700 leading-relaxed">
+                            Had it been detached, this monumental obelisk would have stood nearly <strong>42 meters high</strong> and weighed approximately <strong>1,168 tonnes</strong>. It was abandoned after stress fractures appeared in the stone, leaving behind an invaluable ancient quarrying laboratory.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 text-xs font-medium text-granite-dark">
+                        <div class="flex items-center space-x-2 bg-sand-light p-3 rounded-xl border border-granite-pink/10">
+                            <i class="fa-solid fa-anchor text-granite-rose"></i>
+                            <span>Nile Barge Transport</span>
+                        </div>
+                        <div class="flex items-center space-x-2 bg-sand-light p-3 rounded-xl border border-granite-pink/10">
+                            <i class="fa-solid fa-hammer text-granite-rose"></i>
+                            <span>Dolerite Hammer Craft</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Famous Places & Architectural Landmarks Grid -->
+    <section id="landmarks" class="py-20 bg-sand-warm border-t border-granite-pink/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <div class="inline-flex items-center space-x-2 text-flora-green font-semibold text-xs tracking-widest uppercase mb-2">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        <span>Destinations & Heritage Sites</span>
+                    </div>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-granite-dark">Famous Places & Landmarks</h2>
+                </div>
+                <p class="text-xs sm:text-sm text-granite-dark/70 max-w-md mt-2 md:mt-0">
+                    Explore Aswan's world-famous archaeological jewels, sacred islands, and engineering marvels.
+                </p>
+            </div>
+
+            <!-- Landmarks Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Landmark 1: Philae Temple -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-granite-pink/20 flex flex-col group">
+                    <div class="h-48 bg-granite-dark relative overflow-hidden">
+                        <img src="images (1).jpg" alt="Philae Temple Landscape" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                        <span class="absolute top-4 right-4 bg-desert-gold text-granite-dark text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow">Agilkia Island</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="font-serif text-xl font-bold text-granite-dark">1. Philae Temple</h3>
+                            <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+                                Dedicated to the goddess Isis, featuring monumental pylons, hypocampal columns, and the famous Kiosk of Trajan. Relocated to Agilkia Island during the UNESCO campaign.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-gray-100 flex items-center justify-between text-xs text-flora-green font-semibold">
+                            <span>Ptolemaic & Roman Era</span>
+                            <i class="fa-solid fa-monument"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Landmark 2: The Unfinished Obelisk -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-granite-pink/20 flex flex-col group">
+                    <div class="h-48 bg-granite-dark relative overflow-hidden">
+                        <img src="dd20d5c2-9125-4ecf-a37e-00ba874f80c4.png" alt="The Unfinished Obelisk" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                        <span class="absolute top-4 right-4 bg-granite-rose text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow">Granite Quarries</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="font-serif text-xl font-bold text-granite-dark">2. The Unfinished Obelisk</h3>
+                            <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+                                A massive 42m long granite monolith embedded in bedrock. Offers a unique direct window into ancient Egyptian stone-cutting craftsmanship and quarrying technique.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-gray-100 flex items-center justify-between text-xs text-granite-rose font-semibold">
+                            <span>1,168 Tonnes Mass</span>
+                            <i class="fa-solid fa-hammer"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Landmark 3: Elephantine Island -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-granite-pink/20 flex flex-col group">
+                    <div class="h-48 bg-granite-dark relative overflow-hidden">
+                        <img src="images.jpg" alt="Elephantine Island and Nile" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                        <span class="absolute top-4 right-4 bg-flora-green text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow">Ancient Swenet Center</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="font-serif text-xl font-bold text-granite-dark">3. Elephantine Island</h3>
+                            <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+                                The historic heart of ancient Swenet containing temples dedicated to Khnum, residential ruins, and ancient Nilometers used to predict annual flooding.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-gray-100 flex items-center justify-between text-xs text-flora-green font-semibold">
+                            <span>Includes Nilometer</span>
+                            <i class="fa-solid fa-water"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Landmark 4: Sehel Island & Famine Stela -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-granite-pink/20 flex flex-col group">
+                    <div class="h-48 bg-granite-dark relative overflow-hidden">
+                        <img src="c06d7829-ad8e-45e8-a3b0-219da510c317.png" alt="Sehel Island Granite Inscriptions" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                        <span class="absolute top-4 right-4 bg-desert-gold text-granite-dark text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow">Hieroglyphic Inscriptions</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="font-serif text-xl font-bold text-granite-dark">4. Sehel Island</h3>
+                            <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+                                Home to hundreds of granite rock inscriptions carved across centuries, including the famous <em>Famine Stela</em> detailing a 7-year drought under King Djoser.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-gray-100 flex items-center justify-between text-xs text-desert-gold font-semibold">
+                            <span>Famine Stela Carving</span>
+                            <i class="fa-solid fa-scroll"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Landmark 5: Monastery of St. Simeon -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-granite-pink/20 flex flex-col group">
+                    <div class="h-48 bg-granite-dark relative overflow-hidden">
+                        <!-- Custom styled representation for St Simeon -->
+                        <div class="w-full h-full bg-amber-900/40 flex items-center justify-center p-6 text-center text-white relative">
+                            <i class="fa-solid fa-church text-5xl text-sand-warm opacity-40"></i>
+                            <span class="absolute bottom-3 left-4 text-xs font-serif font-bold text-sand-warm">6th Century AD Coptic Monastery</span>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                        <span class="absolute top-4 right-4 bg-amber-800 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow">Desert West Bank</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="font-serif text-xl font-bold text-granite-dark">5. Monastery of St. Simeon</h3>
+                            <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+                                A magnificent 6th-century Coptic Christian monastic complex on the desert edge. Illustrates how early Christian communities adapted mud-brick and stone architecture to Aswan's arid environment.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-gray-100 flex items-center justify-between text-xs text-amber-800 font-semibold">
+                            <span>Coptic Architectural Heritage</span>
+                            <i class="fa-solid fa-cross"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Landmark 6: Aswan High Dam & Old Dam -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-granite-pink/20 flex flex-col group">
+                    <div class="h-48 bg-granite-dark relative overflow-hidden">
+                        <img src="c5cd26e8-7371-4572-8fc4-c33acedead81.jpg" alt="Aswan High Dam Modern Engineering" class="w-full h-full object-cover object-left group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                        <span class="absolute top-4 right-4 bg-nile-teal text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow">1902 & 1960s Dams</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="font-serif text-xl font-bold text-granite-dark">6. Aswan Dam & High Dam</h3>
+                            <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+                                Monumental infrastructure projects that tamed the annual Nile floods, generated massive hydroelectric power, and created Lake Nasser.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-gray-100 flex items-center justify-between text-xs text-nile-teal font-semibold">
+                            <span>Modern Hydroelectric Marvel</span>
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Architectural Identity & Local Vernacular Section -->
+    <section id="architecture" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-flex items-center space-x-2 text-flora-green font-semibold text-xs tracking-widest uppercase mb-2">
+                    <i class="fa-solid fa-archway"></i>
+                    <span>Built Environment & Upper Egyptian Design</span>
+                </div>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-granite-dark">Aswan's Architectural Identity</h2>
+                <p class="text-granite-dark/70 mt-2 text-sm sm:text-base">
+                    From ancient stone pylons to vibrant colorful domes along the riverbanks, Aswan's architecture reflects organic synthesis between landscape and culture.
+                </p>
+            </div>
+
+            <!-- Image Showcase Grid: Vernacular Architecture (Images: images (2).jpg & images (4).jpg) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <!-- Image 2 Showcase -->
+                <div class="relative rounded-3xl overflow-hidden shadow-xl group border-2 border-granite-pink/20">
+                    <img src="images (2).jpg" alt="Vibrant Painted Upper Egyptian Terraces overlooking Nile sand" class="w-full h-80 sm:h-96 object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-granite-dark/90 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 right-6 text-white">
+                        <span class="bg-blue-600 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">Organic Riverbank Living</span>
+                        <h3 class="font-serif text-xl font-bold mt-2">Vibrant Terraces & Cobalt Wash Walls</h3>
+                        <p class="text-xs text-sand-warm/90 mt-1">Sunkissed blue mudbrick terraces decorated with geometric patterns and palm motifs.</p>
+                    </div>
+                </div>
+
+                <!-- Image 4 Showcase -->
+                <div class="relative rounded-3xl overflow-hidden shadow-xl group border-2 border-granite-pink/20">
+                    <img src="images (4).jpg" alt="Colorful Vaulted Dome Building with Murals in Aswan" class="w-full h-80 sm:h-96 object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-granite-dark/90 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 right-6 text-white">
+                        <span class="bg-flora-green text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">Thermal Arch Architecture</span>
+                        <h3 class="font-serif text-xl font-bold mt-2">Vaulted Domes & Painted Murals</h3>
+                        <p class="text-xs text-sand-warm/90 mt-1">Earthen domed rooftops designed for passive solar cooling in hot Upper Egyptian summers.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Architectural Breakdown Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-sand-warm p-5 rounded-2xl border border-granite-pink/20">
+                    <div class="w-10 h-10 rounded-xl bg-granite-rose text-white flex items-center justify-center font-bold mb-3">
+                        <i class="fa-solid fa-monument"></i>
+                    </div>
+                    <h4 class="font-serif font-bold text-granite-dark text-base">Ancient Egyptian</h4>
+                    <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+                        Characterized by massive stone pylons, hypostyle columns, hieroglyphic reliefs, and red granite alignment.
+                    </p>
+                </div>
+
+                <div class="bg-sand-warm p-5 rounded-2xl border border-granite-pink/20">
+                    <div class="w-10 h-10 rounded-xl bg-flora-green text-white flex items-center justify-center font-bold mb-3">
+                        <i class="fa-solid fa-columns"></i>
+                    </div>
+                    <h4 class="font-serif font-bold text-granite-dark text-base">Ptolemaic & Roman</h4>
+                    <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+                        Mediterranean artistic influences blended with classical Egyptian religious motifs at Philae.
+                    </p>
+                </div>
+
+                <div class="bg-sand-warm p-5 rounded-2xl border border-granite-pink/20">
+                    <div class="w-10 h-10 rounded-xl bg-amber-700 text-white flex items-center justify-center font-bold mb-3">
+                        <i class="fa-solid fa-mosque"></i>
+                    </div>
+                    <h4 class="font-serif font-bold text-granite-dark text-base">Islamic & Modern</h4>
+                    <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+                        Traditional bazaar lanes, decorative minarets, riverfront hotels, and modern dam structures.
+                    </p>
+                </div>
+
+                <div class="bg-sand-warm p-5 rounded-2xl border border-granite-pink/20">
+                    <div class="w-10 h-10 rounded-xl bg-nile-teal text-white flex items-center justify-center font-bold mb-3">
+                        <i class="fa-solid fa-house-chimney-window"></i>
+                    </div>
+                    <h4 class="font-serif font-bold text-granite-dark text-base">Vernacular Domes</h4>
+                    <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+                        Mudbrick vaulted domes, courtyard ventilation, colorful hand-painted murals reflecting local flora & Nile life.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture, Gastronomy & Craftsmanship Section -->
+    <section id="culture-gastronomy" class="py-20 bg-sand-warm border-y border-granite-pink/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-flex items-center space-x-2 text-granite-rose font-semibold text-xs tracking-widest uppercase mb-2">
+                    <i class="fa-solid fa-utensils"></i>
+                    <span>Flavors & Artisanal Heritage</span>
+                </div>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-granite-dark">Traditional Food & Crafts</h2>
+                <p class="text-granite-dark/70 mt-2 text-sm sm:text-base">
+                    Upper Egyptian cuisine combines fresh Nile fish, golden dates, and aromatic spices with age-old stone carving and palm-weaving traditions.
+                </p>
+            </div>
+
+            <!-- Master Image Showcase: Food & Crafts Spread (Image: fc1a6b65-0cb5-41e0-ba33-0acd0194533f.png) -->
+            <div class="mb-16 rounded-3xl overflow-hidden shadow-2xl border-4 border-white relative group">
+                <img src="fc1a6b65-0cb5-41e0-ba33-0acd0194533f.png" alt="Abundant spread of traditional Aswan dishes and handmade crafts by the Nile" class="w-full h-auto object-cover max-h-[550px] group-hover:scale-105 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-granite-dark/95 via-granite-dark/30 to-transparent flex items-end p-6 sm:p-10">
+                    <div class="text-white max-w-3xl">
+                        <span class="bg-desert-gold text-granite-dark font-bold text-xs uppercase tracking-widest px-3 py-1 rounded-full">Authentic Table & Artisanal Display</span>
+                        <h3 class="font-serif text-2xl sm:text-3xl font-bold mt-3">The Rich Palette of Upper Egyptian Hospitality</h3>
+                        <p class="text-xs sm:text-sm text-sand-warm/90 mt-2 leading-relaxed">
+                            A festive spread featuring Fatta with meat, golden Ta'ameya falafel, cooked Ful, Nile fish, Bamia okra stew, fresh Baladi bread, dates, alongside handwoven palm baskets, pottery, and stone-carved ornaments.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Food Grid -->
+            <div class="mb-16">
+                <h3 class="font-serif text-2xl font-bold text-granite-dark mb-6 flex items-center space-x-3">
+                    <i class="fa-solid fa-bowl-food text-granite-rose"></i>
+                    <span>Authentic Culinary Delights</span>
+                </h3>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Food Item 1: Fatta -->
+                    <div class="bg-white p-5 rounded-2xl shadow-sm border border-granite-pink/10 hover:border-granite-rose transition-colors">
+                        <div class="text-granite-rose text-lg font-serif font-bold flex items-center justify-between">
+                            <span>Fatta</span>
+                            <i class="fa-solid fa-drumstick-bite text-xs text-desert-gold"></i>
+                        </div>
+                        <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+                            Layered rice and toasted Baladi bread smothered in garlic, vinegar sauce, and tender meat. Essential for festive family occasions.
+                        </p>
+                    </div>
+
+                    <!-- Food Item 2: Ful & Ta'ameya -->
+                    <div class="bg-white p-5 rounded-2xl shadow-sm border border-granite-pink/10 hover:border-granite-rose transition-colors">
+                        <div class="text-granite-rose text-lg font-serif font-bold flex items-center justify-between">
+                            <span>Ful & Ta'ameya</span>
+                            <i class="fa-solid fa-seedling text-xs text-flora-green"></i>
+                        </div>
+                        <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+                            Slow-cooked fava beans with olive oil and spices, paired with crispy fava-bean falafel served with fresh salad and tahina.
+                        </p>
+                    </div>
+
+                    <!-- Food Item 3: Bamia & Nile Fish -->
+                    <div class="bg-white p-5 rounded-2xl shadow-sm border border-granite-pink/10 hover:border-granite-rose transition-colors">
+                        <div class="text-granite-rose text-lg font-serif font-bold flex items-center justify-between">
+                            <span>Bamia & Nile Fish</span>
+                            <i class="fa-solid fa-fish text-xs text-nile-teal"></i>
+                        </div>
+                        <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+                            Okra stewed in tomato garlic sauce served with fresh wild freshwater fish caught directly from the Nile Cataracts.
+                        </p>
+                    </div>
+
+                    <!-- Food Item 4: Baladi Bread & Dates -->
+                    <div class="bg-white p-5 rounded-2xl shadow-sm border border-granite-pink/10 hover:border-granite-rose transition-colors">
+                        <div class="text-granite-rose text-lg font-serif font-bold flex items-center justify-between">
+                            <span>Baladi Bread & Dates</span>
+                            <i class="fa-solid fa-wheat-awn text-xs text-desert-gold"></i>
+                        </div>
+                        <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+                            Traditional whole-wheat flatbread accompanied by sweet dates cultivated abundantly in southern Egypt's sunny palm groves.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Crafts Section with Image 3 (images (3).jpg) -->
+            <div>
+                <h3 class="font-serif text-2xl font-bold text-granite-dark mb-6 flex items-center space-x-3">
+                    <i class="fa-solid fa-hands-holding-child text-flora-green"></i>
+                    <span>Traditional Crafts & Local Souks</span>
+                </h3>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <!-- Image 3 Showcase -->
+                    <div class="lg:col-span-6 rounded-3xl overflow-hidden shadow-xl border-2 border-granite-pink/20 relative group">
+                        <img src="images (3).jpg" alt="Aswan Local Bazaar and Handmade Basket Crafts" class="w-full h-80 sm:h-96 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-granite-dark/80 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6 text-white">
+                            <span class="bg-flora-green text-white text-[10px] uppercase font-bold tracking-wider px-3 py-1 rounded-full">Aswan Souk Marketplace</span>
+                            <h4 class="font-serif text-xl font-bold mt-2">Woven Baskets & Artisanal Stalls</h4>
+                            <p class="text-xs text-sand-warm/90 mt-1">Streets lined with woven date-palm leaf containers, pottery, and colorful spices.</p>
+                        </div>
+                    </div>
+
+                    <!-- Crafts List -->
+                    <div class="lg:col-span-6 space-y-4">
+                        <div class="bg-white p-4 rounded-2xl border border-granite-pink/10 flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-flora-green/10 text-flora-green flex items-center justify-center flex-shrink-0 font-bold">
+                                <i class="fa-solid fa-jar"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif font-bold text-granite-dark text-base">Pottery & Clay Work</h4>
+                                <p class="text-xs text-gray-600 mt-1">Shaped from fertile Nile silt and clay into cooking vessels, storage jars, and decorative art.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-2xl border border-granite-pink/10 flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-desert-gold/10 text-desert-gold flex items-center justify-center flex-shrink-0 font-bold">
+                                <i class="fa-solid fa-basket-shopping"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif font-bold text-granite-dark text-base">Palm-Leaf Weaving</h4>
+                                <p class="text-xs text-gray-600 mt-1">Flexible date-palm fronds woven into sturdy household mats, bread baskets, and decorative trays.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-2xl border border-granite-pink/10 flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-granite-rose/10 text-granite-rose flex items-center justify-center flex-shrink-0 font-bold">
+                                <i class="fa-solid fa-gem"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif font-bold text-granite-dark text-base">Stone Carving & Jewelry</h4>
+                                <p class="text-xs text-gray-600 mt-1">Granite and sandstone sculptures alongside handmade bead jewelry sold in local souks.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Traditional Music, Soundscapes & Language Explorer Section -->
+    <section id="music-language" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Music & Performance Column -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center space-x-2 text-flora-green font-semibold text-xs tracking-widest uppercase">
+                        <i class="fa-solid fa-music"></i>
+                        <span>Sa'idi Folk Traditions</span>
+                    </div>
+                    <h2 class="font-serif text-3xl font-bold text-granite-dark">
+                        Traditional Music of Upper Egypt
+                    </h2>
+                    <p class="text-granite-dark/80 text-sm leading-relaxed">
+                        Aswan's local musical heritage is deeply rooted in the wider <strong>Sa'idi (Upper Egyptian)</strong> sphere. Music plays an essential role in storytelling, preserving oral history, weddings, and community celebrations.
+                    </p>
+
+                    <!-- Interactive Instrument Cards -->
+                    <div class="grid grid-cols-2 gap-4 pt-2">
+                        <div class="bg-sand-warm p-4 rounded-2xl border border-granite-pink/20 hover:border-flora-green transition-colors cursor-pointer" onclick="playInstrumentSound('rababa')">
+                            <div class="flex items-center justify-between text-flora-green font-bold text-sm">
+                                <span>Rababa</span>
+                                <i class="fa-solid fa-play-circle text-lg"></i>
+                            </div>
+                            <p class="text-[11px] text-gray-600 mt-1">Bowed string instrument crafted with horsehair and coconut shell resonance body.</p>
+                        </div>
+
+                        <div class="bg-sand-warm p-4 rounded-2xl border border-granite-pink/20 hover:border-flora-green transition-colors cursor-pointer" onclick="playInstrumentSound('mizmar')">
+                            <div class="flex items-center justify-between text-flora-green font-bold text-sm">
+                                <span>Mizmar</span>
+                                <i class="fa-solid fa-play-circle text-lg"></i>
+                            </div>
+                            <p class="text-[11px] text-gray-600 mt-1">Loud double-reed wind horn associated with joyful celebrations and folk stick dances.</p>
+                        </div>
+
+                        <div class="bg-sand-warm p-4 rounded-2xl border border-granite-pink/20 hover:border-flora-green transition-colors cursor-pointer" onclick="playInstrumentSound('tabla')">
+                            <div class="flex items-center justify-between text-flora-green font-bold text-sm">
+                                <span>Tabla & Drums</span>
+                                <i class="fa-solid fa-play-circle text-lg"></i>
+                            </div>
+                            <p class="text-[11px] text-gray-600 mt-1">Rhythmic goblet drum defining the driving beats of southern Egyptian folk music.</p>
+                        </div>
+
+                        <div class="bg-sand-warm p-4 rounded-2xl border border-granite-pink/20 hover:border-flora-green transition-colors cursor-pointer" onclick="playInstrumentSound('folk')">
+                            <div class="flex items-center justify-between text-flora-green font-bold text-sm">
+                                <span>Group Singing</span>
+                                <i class="fa-solid fa-play-circle text-lg"></i>
+                            </div>
+                            <p class="text-[11px] text-gray-600 mt-1">Call-and-response group poetry, hand clapping, and improvised epic verses.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Multilingual History & Dialect Column with Image c06d (c06d7829-ad8e-45e8-a3b0-219da510c317.png) -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="relative rounded-3xl overflow-hidden shadow-xl border-2 border-granite-pink/20 mb-6 group">
+                        <img src="c06d7829-ad8e-45e8-a3b0-219da510c317.png" alt="Historic Nile Waterfront and Trade Hub" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4 text-white">
+                            <span class="text-xs text-desert-gold uppercase font-bold tracking-widest">Crossroads of Languages</span>
+                            <h4 class="font-serif text-lg font-bold">Multilingual Frontier & Trade Crossroads</h4>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3">
+                        <h3 class="font-serif text-2xl font-bold text-granite-dark">Linguistic Evolution</h3>
+                        <p class="text-xs sm:text-sm text-granite-dark/80 leading-relaxed">
+                            The primary language spoken today in modern Aswan is <strong>Upper Egyptian Arabic (Sa'idi dialect)</strong>. However, due to its historical status as an international border and trade post, ancient inscriptions throughout Aswan showcase incredible multilingual depth:
+                        </p>
+
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="bg-sand-warm px-3 py-1.5 rounded-lg border border-granite-pink/20 text-granite-dark font-medium">Hieroglyphs</span>
+                            <span class="bg-sand-warm px-3 py-1.5 rounded-lg border border-granite-pink/20 text-granite-dark font-medium">Hieratic Script</span>
+                            <span class="bg-sand-warm px-3 py-1.5 rounded-lg border border-granite-pink/20 text-granite-dark font-medium">Demotic</span>
+                            <span class="bg-sand-warm px-3 py-1.5 rounded-lg border border-granite-pink/20 text-granite-dark font-medium">Greek</span>
+                            <span class="bg-sand-warm px-3 py-1.5 rounded-lg border border-granite-pink/20 text-granite-dark font-medium">Coptic</span>
+                            <span class="bg-sand-warm px-3 py-1.5 rounded-lg border border-granite-pink/20 text-granite-dark font-medium">Arabic</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-granite-dark text-sand-warm pt-16 pb-12 border-t border-granite-pink/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-white/10">
+                
+                <div class="md:col-span-5 space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full flora-gradient flex items-center justify-center text-desert-gold">
+                            <i class="fa-solid fa-water"></i>
+                        </div>
+                        <span class="font-serif text-2xl font-bold text-white tracking-wider">ASWAN</span>
+                    </div>
+                    <p class="text-xs text-sand-warm/70 leading-relaxed max-w-sm">
+                        Aswan is a historic city on the Nile in southern Egypt, famous for its ancient temples, granite quarries, traditional Upper Egyptian culture, and spectacular river landscapes. From Swenet to the High Dam, its heritage endures eternally.
+                    </p>
+                </div>
+
+                <div class="md:col-span-3 space-y-3">
+                    <h4 class="font-serif text-sm font-bold text-desert-gold uppercase tracking-wider">Quick Navigation</h4>
+                    <ul class="space-y-2 text-xs text-sand-warm/80">
+                        <li><a href="#about" class="hover:text-flora-light transition-colors">Overview & Identity</a></li>
+                        <li><a href="#timeline" class="hover:text-flora-light transition-colors">Historical Chronology</a></li>
+                        <li><a href="#granite-quarries" class="hover:text-flora-light transition-colors">Granite Stoneworking</a></li>
+                        <li><a href="#landmarks" class="hover:text-flora-light transition-colors">Philae & Famous Landmarks</a></li>
+                        <li><a href="#culture-gastronomy" class="hover:text-flora-light transition-colors">Food & Traditional Crafts</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-4 space-y-3">
+                    <h4 class="font-serif text-sm font-bold text-desert-gold uppercase tracking-wider">Heritage Color System</h4>
+                    <div class="grid grid-cols-2 gap-2 text-[11px]">
+                        <div class="flex items-center space-x-2 bg-white/5 p-2 rounded-lg">
+                            <span class="w-3 h-3 rounded-full bg-flora-green"></span>
+                            <span>Fertile Flora Green</span>
+                        </div>
+                        <div class="flex items-center space-x-2 bg-white/5 p-2 rounded-lg">
+                            <span class="w-3 h-3 rounded-full bg-granite-rose"></span>
+                            <span>Rose Granite Rock</span>
+                        </div>
+                        <div class="flex items-center space-x-2 bg-white/5 p-2 rounded-lg">
+                            <span class="w-3 h-3 rounded-full bg-nile-teal"></span>
+                            <span>Deep Nile Water</span>
+                        </div>
+                        <div class="flex items-center space-x-2 bg-white/5 p-2 rounded-lg">
+                            <span class="w-3 h-3 rounded-full bg-desert-gold"></span>
+                            <span>Desert Ochre</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-sand-warm/60">
+                <p>© 2026 Aswan Heritage UX/UI Portal. Designed with Fertile Flora & Granite Palette.</p>
+                <div class="flex space-x-4 mt-4 sm:mt-0">
+                    <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-square-facebook text-base"></i></a>
+                    <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram text-base"></i></a>
+                    <a href="#" class="hover:text-white transition-colors"><i class="fa-solid fa-compass text-base"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle logic
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Web Audio Synthesizer for Nile Ambient Soundscape & Instruments
+        let audioCtx = null;
+        let ambientGain = null;
+        let isAudioPlaying = false;
+
+        function initAudio() {
+            if (!audioCtx) {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                audioCtx = new AudioContext();
+            }
+        }
+
+        function toggleAudio() {
+            initAudio();
+            const btn = document.getElementById('audioBtn');
+            const icon = document.getElementById('audioIcon');
+            const text = document.getElementById('audioText');
+
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+
+            if (!isAudioPlaying) {
+                // Play soothing river sound simulation using pink noise
+                const bufferSize = audioCtx.sampleRate * 2;
+                const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+                const output = noiseBuffer.getChannelData(0);
+                for (let i = 0; i < bufferSize; i++) {
+                    output[i] = Math.random() * 2 - 1;
+                }
+
+                const whiteNoise = audioCtx.createBufferSource();
+                whiteNoise.buffer = noiseBuffer;
+                whiteNoise.loop = true;
+
+                // Lowpass filter for water breeze feel
+                const filter = audioCtx.createBiquadFilter();
+                filter.type = 'lowpass';
+                filter.frequency.setValueAtTime(400, audioCtx.currentTime);
+
+                ambientGain = audioCtx.createGain();
+                ambientGain.gain.setValueAtTime(0.05, audioCtx.currentTime);
+
+                whiteNoise.connect(filter);
+                filter.connect(ambientGain);
+                ambientGain.connect(audioCtx.destination);
+
+                whiteNoise.start();
+                window.currentNoise = whiteNoise;
+
+                isAudioPlaying = true;
+                btn.classList.add('bg-flora-green', 'text-white');
+                btn.classList.remove('bg-flora-green/10', 'text-flora-green');
+                icon.className = 'fa-solid fa-volume-xmark';
+                text.innerText = 'Pause Ambient';
+            } else {
+                if (window.currentNoise) {
+                    window.currentNoise.stop();
+                }
+                isAudioPlaying = false;
+                btn.classList.remove('bg-flora-green', 'text-white');
+                btn.classList.add('bg-flora-green/10', 'text-flora-green');
+                icon.className = 'fa-solid fa-volume-high';
+                text.innerText = 'Nile Ambient';
+            }
+        }
+
+        function playInstrumentSound(type) {
+            initAudio();
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+
+            const now = audioCtx.currentTime;
+
+            if (type === 'rababa') {
+                // Sawtooth bow sound
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(293.66, now); // D4 note
+                osc.frequency.exponentialRampToValueAtTime(329.63, now + 0.3);
+                gain.gain.setValueAtTime(0.15, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 1.2);
+                osc.start(now);
+                osc.stop(now + 1.2);
+            } else if (type === 'mizmar') {
+                // Square wave high reed horn
+                osc.type = 'square';
+                osc.frequency.setValueAtTime(587.33, now); // D5
+                osc.frequency.setValueAtTime(659.25, now + 0.2); // E5
+                gain.gain.setValueAtTime(0.1, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.8);
+                osc.start(now);
+                osc.stop(now + 0.8);
+            } else if (type === 'tabla') {
+                // Low pitch drum thud
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(150, now);
+                osc.frequency.exponentialRampToValueAtTime(40, now + 0.25);
+                gain.gain.setValueAtTime(0.3, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
+                osc.start(now);
+                osc.stop(now + 0.3);
+            } else {
+                // Harmonic group singing tone
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(220, now);
+                gain.gain.setValueAtTime(0.2, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 1.5);
+                osc.start(now);
+                osc.stop(now + 1.5);
+            }
+        }
+    </script>
+</body>
+</html>
